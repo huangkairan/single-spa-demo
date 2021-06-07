@@ -11,6 +11,8 @@ const lifecycles = singleSpaReact({
     // Customize the root error boundary for your microfrontend here.
     return null;
   },
+  // 将react子应用挂到id=myreact的div上
+  domElementGetter: () => document.getElementById("myreact"),
 });
 
 export const { bootstrap, mount, unmount } = lifecycles;

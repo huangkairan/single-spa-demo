@@ -36,3 +36,12 @@ single-spa-demo for practice
   - 配置 importmap
 - rootconfig.js
   - 注册子应用
+
+4. 将子应用挂载到对应节点下
+
+```
+在container中创建 <div id="myreact"></div>
+
+在子应用的config中配置domElementGetter
+domElementGetter: () => document.getElementById('myreact')
+```
