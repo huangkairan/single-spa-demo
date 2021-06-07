@@ -6,14 +6,24 @@ import { registerApplication, start } from "single-spa";
  *  app fn 通过systemjs引用打包好的微前端应用模块代码umd 返回promise
  *  activeMenu array 路由匹配时激活应用
  */
-registerApplication({
-  name: "@single-spa/welcome",
-  app: () =>
+// registerApplication({
+//   name: "@single-spa/welcome",
+//   app: () =>
+//     System.import(
+//       "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
+//     ),
+//   activeWhen: ["/"],
+// });
+
+// 将 “/” 改为精确匹配
+registerApplication(
+  "@single-spa/welcome",
+  () =>
     System.import(
       "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
     ),
-  activeWhen: ["/"],
-});
+  (location) => location.pathname === "/"
+);
 
 // 注册react子应用
 registerApplication({
