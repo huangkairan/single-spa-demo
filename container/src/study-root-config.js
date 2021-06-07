@@ -15,6 +15,13 @@ registerApplication({
   activeWhen: ["/"],
 });
 
+// 注册react子应用
+registerApplication({
+  name: "@study/todos",
+  app: () => System.import("@study/todos"),
+  activeWhen: ["/todos"],
+});
+
 // registerApplication({
 //   name: "@study/navbar",
 //   app: () => System.import("@study/navbar"),
